@@ -67,7 +67,7 @@ export default function DashboardPage() {
       }
 
       // Validate token time (must be less than 60 seconds old)
-      const { isValid, timeDiff } = validateTokenTime(encryptedToken);
+      const { isValid, timeDiff } = validateTokenTime(typeof encryptedToken === 'string' ? encryptedToken : '');
       console.log('Token validation result:', { isValid, timeDiff });
 
       if (!isValid) {
